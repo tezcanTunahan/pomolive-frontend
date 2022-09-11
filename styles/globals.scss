@@ -3,5 +3,19 @@
   padding: 0;
   margin: 0;
 }
-
+body {
+  background-color: black;
+  color: white;
+}
+//mixin
+@import 'mixin.scss';
+//page
 @import 'Home.scss';
+//components
+@import 'components/timer.scss';
+@import 'components/playbutton.scss';
+@import 'components/pausebutton.scss';
+@import 'components/settingbutton.scss';
+@import 'components/settings.scss';
+//UI
+@import 'components/UI/button.scss';
