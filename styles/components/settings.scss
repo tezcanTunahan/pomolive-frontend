@@ -10,7 +10,7 @@
     border: 2px solid red;
     border-radius: 20px;
     &--green {
-      border: 2px solid greenyellow;
+      border: 2px solid $fourth-color;
     }
   }
   &__thumb {
@@ -20,7 +20,7 @@
     height: 100%;
     border-radius: 20px;
     &--green {
-      background-color: greenyellow;
+      background-color: $fourth-color;
       cursor: pointer;
       width: 40px;
       height: 100%;
