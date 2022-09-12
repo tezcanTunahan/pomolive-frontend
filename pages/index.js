@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Timer from '../components/Timer';
 import Settings from '../components/Settings';
+import Navbar from '../components/Navbar';
 import SettingsContext from '../store/SettingsContext';
 import { useState } from 'react';
 
@@ -17,6 +18,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className='main'>
+        <Navbar />
         <SettingsContext.Provider
           value={{
             showSettings,
