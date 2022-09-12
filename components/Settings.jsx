@@ -12,8 +12,8 @@ export default function Settings() {
         Work : {settingsInfo.workMinutes}
       </label>
       <ReactSlider
-        className='settings__slider'
-        thumbClassName='settings__thumb'
+        className='settings__slider settings__slider--red'
+        thumbClassName='settings__thumb settings__thumb--red'
         trackClassName='settings__track'
         value={settingsInfo.workMinutes}
         min={1}
@@ -25,7 +25,7 @@ export default function Settings() {
       </label>
       <ReactSlider
         className='settings__slider settings__slider--green'
-        thumbClassName='settings__thumb--green'
+        thumbClassName='settings__thumb settings__thumb--green'
         trackClassName='settings__track'
         value={settingsInfo.breakMinutes}
         min={1}
@@ -33,6 +33,7 @@ export default function Settings() {
         onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
       />
       <Button
+        className='settings__button'
         onClick={() => {
           settingsInfo.setShowSetting(false);
         }}

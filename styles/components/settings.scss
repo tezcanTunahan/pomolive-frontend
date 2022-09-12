@@ -1,5 +1,5 @@
 .settings {
-  width: 30%;
+  width: 50%;
   &__label {
     display: block;
     margin-bottom: 10px;
@@ -7,24 +7,27 @@
   }
   &__slider {
     height: 40px;
-    border: 2px solid red;
     border-radius: 20px;
     &--green {
       border: 2px solid $fourth-color;
     }
+    &--red {
+      border: 2px solid red;
+    }
   }
   &__thumb {
-    background-color: red;
     cursor: pointer;
     width: 40px;
     height: 100%;
     border-radius: 20px;
     &--green {
       background-color: $fourth-color;
-      cursor: pointer;
-      width: 40px;
-      height: 100%;
-      border-radius: 20px;
     }
+    &--red {
+      background-color: red;
+    }
+  }
+  &__button {
+    margin-top: 1rem;
   }
 }
