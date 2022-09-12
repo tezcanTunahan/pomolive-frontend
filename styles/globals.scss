@@ -1,8 +1,13 @@
-//variables
-@import './_variables.scss';
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: black;
+  color: white;
+}
 
-//mixin
-@import 'mixin.scss';
 //page
 @import 'home.scss';
 //components
@@ -11,13 +16,3 @@
 @import 'components/navbar.scss';
 //UI
 @import 'components/UI/button.scss';
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-body {
-  background-color: $third-color;
-  color: white;
-}
