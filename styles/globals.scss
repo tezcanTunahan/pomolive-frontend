@@ -1,3 +1,12 @@
+//page
+@import 'pages/index.scss';
+//components
+@import 'components/timer.scss';
+@import 'components/settings.scss';
+@import 'components/navbar.scss';
+//UI
+@import 'components/ui/button.scss';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -7,12 +16,3 @@ body {
   background-color: black;
   color: white;
 }
-
-//page
-@import 'Home.scss';
-//components
-@import 'components/timer.scss';
-@import 'components/settings.scss';
-@import 'components/navbar.scss';
-//UI
-@import 'components/UI/button.scss';
