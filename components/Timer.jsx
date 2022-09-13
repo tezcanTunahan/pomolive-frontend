@@ -58,7 +58,7 @@ export default function Timer() {
           styles={buildStyles({
             // Colors
             pathColor: mode === 'work' ? 'red' : '#08fdd8',
-            textColor: '#f88',
+            textColor: 'white',
             trailColor: 'rgb(255, 255, 255.2)',
             backgroundColor: '#3e98c7',
           })}
