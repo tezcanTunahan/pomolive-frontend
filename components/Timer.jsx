@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import Button from './UI/Button';
+import Button from './ui/Button';
 import { useContext, useState, useEffect, useRef } from 'react';
 import SettingsContext from '../store/SettingsContext';
 

@@ -1,5 +1,15 @@
 .navbar {
-  width: 100vw;
+  width: 100%;
   height: 8vh;
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .navbar__mid {
+    display: flex;
+    gap: 2rem;
+  }
+  .navbar__right {
+    display: flex;
+    gap: 1rem;
+  }
 }

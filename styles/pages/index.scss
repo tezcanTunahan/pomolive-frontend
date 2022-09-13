@@ -1,6 +1,13 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.index {
+  &__navbar {
+    position: fixed;
+    top: 0;
+  }
+  &__mid {
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
