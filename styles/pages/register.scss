@@ -1,0 +1,26 @@
+.register {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__left {
+    display: flex;
+    flex-basis: 40%;
+    align-items: center;
+    justify-content: center;
+    &__title {
+    }
+  }
+  &__right {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+
+    &__inputs {
+    }
+    &__buttons {
+      margin-top: 1rem;
+    }
+  }
+}

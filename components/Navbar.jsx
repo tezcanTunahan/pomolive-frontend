@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Button from './ui/Button';
 
 export default function Navbar() {
@@ -11,8 +12,8 @@ export default function Navbar() {
         <Button text='Pomo Ofline' />
       </div>
       <div className='navbar__right'>
-        <Button text='Report' />
-        <Button text='Login' />
+        <Link href={'/login'}>Login</Link>
+        <Link href={'/register'}>Register</Link>
       </div>
     </div>
   );

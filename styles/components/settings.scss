@@ -1,5 +1,7 @@
 .settings {
   width: 50%;
+  display: flex;
+  flex-direction: column;
   &__label {
     display: block;
     margin-bottom: 10px;
@@ -29,5 +31,12 @@
   }
   &__button {
     margin-top: 1rem;
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .settings {
+    width: 85%;
   }
 }
