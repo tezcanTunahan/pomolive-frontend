@@ -57,7 +57,7 @@ export default function Login() {
           </div>
         </form>
         <p>
-          If you don't have a account <Link href='/register'>Register</Link>{' '}
+          If you do not have a account <Link href='/register'>Register</Link>{' '}
         </p>
       </div>
     </div>
