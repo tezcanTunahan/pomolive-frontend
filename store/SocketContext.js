@@ -5,8 +5,8 @@ import Router from 'next/router';
 
 const SocketContext = createContext();
 
-// const socket = io('https://pomolive-s  ocket.herokuapp.com/');
-const socket = io('http://localhost:4000/');
+const socket = io('https://pomolive-socket.herokuapp.com/');
+// const socket = io('http://localhost:4000/');
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -35,7 +35,8 @@ const ContextProvider = ({ children }) => {
           myVideo.current.srcObject = currentStream;
         });
     }
-    if (!me) socket = io('http://localhost:4000/');
+    if (!me) socket = io('https://pomolive-socket.herokuapp.com/');
+    // if (!me) socket = io('http://localhost:4000/');
     socket.on('me', (id) => setMe(id));
 
     socket.on('callUser', ({ from, name: callerName, signal }) => {
