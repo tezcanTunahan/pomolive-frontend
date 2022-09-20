@@ -1,23 +1,21 @@
-import react, { useState, useRef, useEffect, createContext } from 'react';
+import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
-import { useRouter } from 'next/router';
 
 const SocketContext = createContext();
 
-// if not work try 4000
-const socket = io('http://localhost:4000');
+const socket = io('https://pomolive-socket.herokuapp.com/');
 
 const ContextProvider = ({ children }) => {
-  const router = useRouter();
-  const [stream, setStream] = useState(null);
-  const [me, setMe] = useState('');
-  const [call, setCall] = useState({});
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
+  const [stream, setStream] = useState();
   const [name, setName] = useState('');
-  const myVideo = useRef({ srcObject: null });
-  const userVideo = useRef();
+  const [call, setCall] = useState({});
+  const [me, setMe] = useState('');
+
+  const myVideo = useRef({});
+  const userVideo = useRef({});
   const connectionRef = useRef();
 
   useEffect(() => {
@@ -25,26 +23,27 @@ const ContextProvider = ({ children }) => {
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
+
         myVideo.current.srcObject = currentStream;
       });
 
-    socket.on('me', (id) => {
-      setMe(id);
-    });
-    socket.on('calluser', ({ from, name, signal }) => {
-      setCall({ isRecivedCall: true, from, name, signal });
+    socket.on('me', (id) => setMe(id));
+
+    socket.on('callUser', ({ from, name: callerName, signal }) => {
+      setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
   }, []);
 
   const answerCall = () => {
     setCallAccepted(true);
+
     const peer = new Peer({ initiator: false, trickle: false, stream });
 
     peer.on('signal', (data) => {
-      socket.emit('answercall', { signal: data, to: call.from });
+      socket.emit('answerCall', { signal: data, to: call.from });
     });
 
-    peer.on('steram', (currentStream) => {
+    peer.on('stream', (currentStream) => {
       userVideo.current.srcObject = currentStream;
     });
 
@@ -52,29 +51,35 @@ const ContextProvider = ({ children }) => {
 
     connectionRef.current = peer;
   };
+
   const callUser = (id) => {
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {
-      socket.emit('calluser', { userToCall: id, signalData: data, from: me, name });
+      socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
     });
 
-    peer.on('steram', (currentStream) => {
+    peer.on('stream', (currentStream) => {
       userVideo.current.srcObject = currentStream;
     });
 
-    socket.on('callaccapted', (signal) => {
+    socket.on('callAccepted', (signal) => {
       setCallAccepted(true);
+
       peer.signal(signal);
     });
+
     connectionRef.current = peer;
   };
 
   const leaveCall = () => {
     setCallEnded(true);
+
     connectionRef.current.destroy();
-    router.reload(window.location.pathname);
+
+    window.location.reload();
   };
+
   return (
     <SocketContext.Provider
       value={{

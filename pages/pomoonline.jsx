@@ -1,19 +1,20 @@
-import { ContextProvider } from '../store/SocketContext';
-import Container from '../components/ui/Container';
+import React from 'react';
 import VideoPlayer from '../components/VideoPlayer';
-import Options from '../components/Options';
 import Notifications from '../components/Notifications';
+import Sidebar from '../components/Sidebar';
+import Container from '../components/ui/Container';
+import { ContextProvider } from '../store/SocketContext';
 
-export default function Pomoonline() {
+export default function pomoonline() {
   return (
     <Container>
       <ContextProvider>
-        <h1>pomo online</h1>
-        <div className=''>
+        <div className='pomoonline'>
+          <h2>Video Chat</h2>
           <VideoPlayer />
-          <Options>
+          <Sidebar>
             <Notifications />
-          </Options>
+          </Sidebar>
         </div>
       </ContextProvider>
     </Container>

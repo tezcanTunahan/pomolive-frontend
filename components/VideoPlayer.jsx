@@ -1,35 +1,26 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { SocketContext } from '../store/SocketContext';
 
-export default function VideoPlayer() {
-  const { call, callAccepted, myVideo, userVideo, stream, name, callEnded } =
+const VideoPlayer = () => {
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
     useContext(SocketContext);
+
   return (
-    <div className='videoplayer'>
+    <div>
       {stream && (
         <div>
-          {name ? name : 'name'}
-          <video
-            ref={myVideo}
-            playsInline
-            muted
-            autoPlay
-            className='videoplayer__video'
-          />{' '}
+          <p>{name || 'Name'}</p>
+          <video playsInline muted ref={myVideo} autoPlay className='video' />
         </div>
       )}
       {callAccepted && !callEnded && (
-        <div className='userScreen'>
-          {call.name ? call.name : 'call.name'}
-          <video
-            ref={userVideo}
-            playsInline
-            muted
-            autoPlay
-            className='videoplayer__video'
-          />
+        <div>
+          <p>{call.name || 'Name'}</p>
+          <video playsInline ref={userVideo} autoPlay className='video' />
         </div>
       )}
     </div>
   );
-}
+};
+
+export default VideoPlayer;
