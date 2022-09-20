@@ -6,12 +6,12 @@ const Sidebar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =
     useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
-
   return (
     <div>
       <div noValidate autoComplete='off'>
         <p>Account Info</p>
         <input label='Name' value={name} onChange={(e) => setName(e.target.value)} />
+        {me}
         <CopyToClipboard text={me}>
           <button>Copy Your ID</button>
         </CopyToClipboard>

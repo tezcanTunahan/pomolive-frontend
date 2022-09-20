@@ -1,10 +1,12 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
+import Router from 'next/router';
 
 const SocketContext = createContext();
 
-const socket = io('https://pomolive-socket.herokuapp.com/');
+// const socket = io('https://pomolive-s  ocket.herokuapp.com/');
+const socket = io('http://localhost:4000/');
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -17,17 +19,23 @@ const ContextProvider = ({ children }) => {
   const myVideo = useRef({});
   const userVideo = useRef({});
   const connectionRef = useRef();
-  const recorder = () => {
+
+  useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
         myVideo.current.srcObject = currentStream;
       });
-  };
-
-  useEffect(() => {
-    recorder();
+    if (!myVideo.current.srcObject) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: true })
+        .then((currentStream) => {
+          setStream(currentStream);
+          myVideo.current.srcObject = currentStream;
+        });
+    }
+    if (!me) socket = io('http://localhost:4000/');
     socket.on('me', (id) => setMe(id));
 
     socket.on('callUser', ({ from, name: callerName, signal }) => {
@@ -75,10 +83,8 @@ const ContextProvider = ({ children }) => {
 
   const leaveCall = () => {
     setCallEnded(true);
-
     connectionRef.current.destroy();
-
-    window.location.reload();
+    Router.reload(window.location.pathname);
   };
 
   return (
