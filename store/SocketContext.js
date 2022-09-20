@@ -31,7 +31,7 @@ const ContextProvider = ({ children }) => {
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-  }, []);
+  }, [myVideo]);
 
   const answerCall = () => {
     setCallAccepted(true);
