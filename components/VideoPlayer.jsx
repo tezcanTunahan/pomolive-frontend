@@ -8,21 +8,26 @@ const VideoPlayer = () => {
   return (
     <div className='videoplayer'>
       {stream && (
-        <div>
-          <p>{name || 'Name'}</p>
+        <div className='videoplayer__container'>
+          <h3>{name || 'Name'}</h3>
           <video
             playsInline
             muted
             ref={myVideo}
             autoPlay
-            className='videoplayer__video'
+            className='videoplayer__container__video'
           />
         </div>
       )}
       {callAccepted && !callEnded && (
-        <div>
-          <p>{call.name || 'Name'}</p>
-          <video playsInline ref={userVideo} autoPlay className='videoplayer__video' />
+        <div className='videoplayer__container'>
+          <h3>{call.name || 'Name'}</h3>
+          <video
+            playsInline
+            ref={userVideo}
+            autoPlay
+            className='videoplayer__container__video'
+          />
         </div>
       )}
     </div>

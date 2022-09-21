@@ -15,6 +15,10 @@ export default function Navbar() {
     }
     setUser(JSON.parse(localStorage.getItem('user')));
   }, [user?.token]);
+  const handleLogout = () => {
+    localStorage.clear();
+    setUser(null);
+  };
 
   return (
     <div className='navbar'>

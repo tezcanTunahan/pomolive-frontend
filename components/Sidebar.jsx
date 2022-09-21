@@ -1,30 +1,32 @@
 import React, { useState, useContext } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { SocketContext } from '../store/SocketContext';
+import Button from './ui/Button';
+import Input from './ui/Input';
 
 const Sidebar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =
     useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   return (
-    <div>
-      <div noValidate autoComplete='off'>
+    <div className='sidebar'>
+      <div noValidate autoComplete='off' className='sidebar__top'>
         <p>Account Info</p>
-        <input label='Name' value={name} onChange={(e) => setName(e.target.value)} />
+        <Input label='Name' value={name} onChange={(e) => setName(e.target.value)} />
         {me}
         <CopyToClipboard text={me}>
-          <button>Copy Your ID</button>
+          <Button text='Copy Your ID' />
         </CopyToClipboard>
         <p>Make a call</p>
-        <input
+        <Input
           label='ID to call'
           value={idToCall}
           onChange={(e) => setIdToCall(e.target.value)}
         />
         {callAccepted && !callEnded ? (
-          <button onClick={leaveCall}>Hang Up</button>
+          <Button onClick={leaveCall} text='Hanh up'></Button>
         ) : (
-          <button onClick={() => callUser(idToCall)}>Call</button>
+          <Button onClick={() => callUser(idToCall)} text='Call'></Button>
         )}
       </div>
       {children}
