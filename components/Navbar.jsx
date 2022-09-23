@@ -28,6 +28,7 @@ export default function Navbar() {
       <div className='navbar__mid'>
         <Button onClick={() => Router.push('/')} text='Pomo Ofline' />
         <Button onClick={() => Router.push('/pomoonline')} text='Pomo online' />
+        <Button onClick={() => Router.push('/studysummary')} text='study summary' />
       </div>
       <div className='navbar__right'>
         {user ? (

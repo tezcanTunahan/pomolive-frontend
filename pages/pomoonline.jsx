@@ -11,7 +11,7 @@ export default function pomoonline() {
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
-  }, [user]);
+  }, []);
 
   return (
     <Container>
