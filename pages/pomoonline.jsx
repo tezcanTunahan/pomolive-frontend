@@ -6,7 +6,7 @@ import Container from '../components/ui/Container';
 import NoUser from '../components/NoUser';
 import { ContextProvider } from '../store/SocketContext';
 
-export default function pomoonline() {
+export default function Pomoonline() {
   const [user, setUser] = useState();
   const [stillOnProgress, setStillOnProgress] = useState(true);
 
