@@ -32,6 +32,7 @@ export default function GetReport({ date }) {
             {hours.map((hour, index) => {
               return (
                 <div
+                  key={index}
                   className={`getreport__mid__hours__box ${
                     index + 1 <= work.hours &&
                     (date === work.date
