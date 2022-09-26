@@ -5,7 +5,7 @@ import SetReport from '../components/SetReport';
 import Button from '../components/ui/Button';
 import NoUser from '../components/NoUser';
 
-export default function studysummary() {
+export default function Studysummary() {
   const [showReport, setShowReport] = useState(false);
   const [date, setDate] = useState();
   const [user, setUser] = useState();

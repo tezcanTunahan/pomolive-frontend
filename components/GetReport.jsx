@@ -21,8 +21,8 @@ export default function GetReport({ date }) {
         <h3>Date</h3>
         <h3>Work hours</h3>
       </div>
-      {data?.data.userData[0].works.reverse().map((work) => (
-        <div className='getreport__mid'>
+      {data?.data.userData[0].works.reverse().map((work, index) => (
+        <div className='getreport__mid' key={index}>
           <div className='getreport__mid__date'>
             {work.date}
             {date === work.date && <span className='getreport__mid__today'>Today</span>}
