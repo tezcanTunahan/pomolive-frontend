@@ -1,0 +1,15 @@
+.studysummary {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__top {
+    width: 80%;
+  }
+  &__bottom {
+    margin-top: 1rem;
+    width: 80%;
+  }
+}

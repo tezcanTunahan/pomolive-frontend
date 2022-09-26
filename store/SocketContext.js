@@ -21,6 +21,16 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
 
   useEffect(() => {
+    if (!me) socket = io('https://pomolive-socket.herokuapp.com/');
+    // if (!me) socket = io('http://localhost:4000/');
+    socket.on('me', (id) => setMe(id));
+
+    socket.on('callUser', ({ from, name: callerName, signal }) => {
+      setCall({ isReceivingCall: true, from, name: callerName, signal });
+    });
+  }, []);
+
+  const openCamera = () => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
@@ -35,14 +45,7 @@ const ContextProvider = ({ children }) => {
           myVideo.current.srcObject = currentStream;
         });
     }
-    if (!me) socket = io('https://pomolive-socket.herokuapp.com/');
-    // if (!me) socket = io('http://localhost:4000/');
-    socket.on('me', (id) => setMe(id));
-
-    socket.on('callUser', ({ from, name: callerName, signal }) => {
-      setCall({ isReceivingCall: true, from, name: callerName, signal });
-    });
-  }, []);
+  };
 
   const answerCall = () => {
     setCallAccepted(true);
@@ -103,6 +106,7 @@ const ContextProvider = ({ children }) => {
         callUser,
         leaveCall,
         answerCall,
+        openCamera,
       }}
     >
       {children}

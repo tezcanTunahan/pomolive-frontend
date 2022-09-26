@@ -1,11 +1,16 @@
 .button {
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #08fdd8;
   color: #08fdd8;
   background-color: black;
   border-radius: 6px;
   width: 100%;
   cursor: pointer;
+  * {
+    padding: 1rem;
+  }
 }
 .button:hover {
   background-color: #08fdd8;

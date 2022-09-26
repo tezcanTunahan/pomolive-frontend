@@ -53,11 +53,22 @@ export default function Login() {
             {formik.errors.password}
           </div>
           <div className='register__right__buttons'>
-            <Button text='Login to Pomolive' type='submit' />
+            <Button
+              text='Login to Pomolive'
+              type='submit'
+              style={{ padding: '1rem', margin: '1rem 0' }}
+            />
           </div>
         </form>
         <p>
-          If you do not have a account <Link href='/register'>Register</Link>{' '}
+          If you do not have a account{' '}
+          <Link href='/register'>
+            <span
+              style={{ color: 'red', cursor: 'pointer', borderBottom: '1px solid red' }}
+            >
+              Register
+            </span>
+          </Link>
         </p>
       </div>
     </div>

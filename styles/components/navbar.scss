@@ -1,18 +1,86 @@
 .navbar {
+  font-size: 0.8rem;
   width: 100%;
   height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  .navbar__mid {
-    display: flex;
-    gap: 1rem;
+  &__left {
     * {
-      width: 75px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      -webkit-animation: colorchange 7s infinite alternate;
     }
   }
-  .navbar__right {
+  &__mid {
+    display: flex;
+    gap: 3rem;
+    &__logo {
+      display: flex;
+      font-size: 0.5rem;
+    }
+    * {
+      color: wheat;
+      background-color: rgb(83, 75, 75);
+      padding: 0.3rem 0.9rem;
+      text-decoration: none;
+    }
+    :hover {
+      background-color: red;
+      transition: all 0.2s ease;
+    }
+  }
+  &__right {
     display: flex;
     gap: 1rem;
+    &__name {
+      min-width: fit-content;
+    }
+    * {
+      color: wheat;
+      background-color: rgb(83, 75, 75);
+      padding: 0.3rem 0.9rem;
+      text-decoration: none;
+    }
+    :hover {
+      background-color: red;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: #08fdd8;
+  }
+  10% {
+    color: red;
+  }
+  20% {
+    color: white;
+  }
+  30% {
+    color: #08fdd8;
+  }
+  40% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+  60% {
+    color: #08fdd8;
+  }
+  70% {
+    color: red;
+  }
+  80% {
+    color: white;
+  }
+  90% {
+    color: #08fdd8;
+  }
+  100% {
+    color: red;
   }
 }

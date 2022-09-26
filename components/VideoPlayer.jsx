@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { SocketContext } from '../store/SocketContext';
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
+  const { openCamera, name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
     useContext(SocketContext);
 
   return (
@@ -30,6 +30,7 @@ const VideoPlayer = () => {
           />
         </div>
       )}
+      <button onClick={openCamera}>open Camera</button>
     </div>
   );
 };

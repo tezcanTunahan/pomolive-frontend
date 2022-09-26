@@ -1,12 +1,11 @@
 import Timer from '../components/Timer';
 import Settings from '../components/Settings';
-import Navbar from '../components/Navbar';
 import SettingsContext from '../store/SettingsContext';
 import { useState } from 'react';
 import Container from '../components/ui/Container';
 
 export default function Home() {
-  const [showSettings, setShowSetting] = useState(true);
+  const [showSettings, setShowSetting] = useState(false);
   const [workMinutes, setWorkMinutes] = useState(45);
   const [breakMinutes, setBreakMinutes] = useState(15);
 

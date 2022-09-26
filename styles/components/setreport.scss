@@ -1,0 +1,13 @@
+.setreport {
+  &__top {
+    * {
+      padding: 1rem 0;
+    }
+  }
+  &__mid {
+    padding: 2rem 0;
+  }
+  &__bottom {
+    width: 50%;
+  }
+}

@@ -88,10 +88,21 @@ export default function Register() {
             {formik.errors.confirmPassword}
           </div>
           <div className='register__right__buttons'>
-            <Button text='Register to Pomolive' type='submit' />
+            <Button
+              text='Register to Pomolive'
+              type='submit'
+              style={{ padding: '1rem', margin: '1rem 0' }}
+            />
           </div>
           <p>
-            If you already have a account <Link href='/login'>login</Link>
+            If you already have a account{' '}
+            <Link href='/login'>
+              <span
+                style={{ color: 'red', cursor: 'pointer', borderBottom: '1px solid red' }}
+              >
+                Login
+              </span>
+            </Link>
           </p>
         </form>
       </div>

@@ -12,3 +12,6 @@ API.interceptors.request.use((req) => {
 
 export const login = (userData) => API.post(`/user/login`, userData);
 export const register = (userData) => API.post(`/user/register`, userData);
+
+export const getReport = () => API.get(`/report`);
+export const setReport = (data) => API.post(`/report`, data);

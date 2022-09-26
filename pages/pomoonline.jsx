@@ -8,6 +8,7 @@ import { ContextProvider } from '../store/SocketContext';
 
 export default function pomoonline() {
   const [user, setUser] = useState();
+  const [stillOnProgress, setStillOnProgress] = useState(true);
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
@@ -16,7 +17,9 @@ export default function pomoonline() {
   return (
     <Container>
       <ContextProvider>
-        {user ? (
+        {stillOnProgress ? (
+          'still developering'
+        ) : user ? (
           <div className='pomoonline'>
             <VideoPlayer />
             <Sidebar>

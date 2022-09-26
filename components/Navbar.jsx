@@ -18,31 +18,29 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.clear();
     setUser(null);
+    Router.reload();
   };
 
   return (
-    <div className='navbar'>
-      <div className='navbar__Left'>
-        <h3>Pomolive</h3>
+    <nav className='navbar'>
+      <div className='navbar__left'>
+        <Link href={'./'}>Pomolive</Link>
       </div>
       <div className='navbar__mid'>
-        <Button onClick={() => Router.push('/')} text='Pomo Ofline' />
-        <Button onClick={() => Router.push('/pomoonline')} text='Pomo online' />
-        <Button onClick={() => Router.push('/studysummary')} text='study summary' />
+        <Link href='/'>Pomo Ofline</Link>
+        <Link href='/pomoonline'>Pomo Online</Link>
+        <Link href='/studysummary'>Study Summary</Link>
       </div>
-      <div className='navbar__right'>
-        {user ? (
-          <div>
-            {user.result.name}
-            <Button onClick={handleLogout} text='log out' />
-          </div>
-        ) : (
-          <div>
-            <Link href={'/login'}>Login</Link>
-            <Link href={'/register'}>Register</Link>
-          </div>
-        )}
-      </div>
-    </div>
+      {user ? (
+        <div className='navbar__right'>
+          <span className='navbar__right__name'>{user.result.name}</span>
+          <Button onClick={handleLogout} text='log out' />
+        </div>
+      ) : (
+        <div className='navbar__right'>
+          <Link href={'/login'}>Login</Link>
+        </div>
+      )}
+    </nav>
   );
 }
